@@ -13,7 +13,6 @@ teamApp.controller('playersListCtrl',['$scope','$http', function($scope, $http) 
     $scope.playersCount = 50;
     $scope.showMore = function(count){
     	$scope.playersCount += count;
-    	console.log($scope.playersCount);
     }
 
     // Function for calculate proj
