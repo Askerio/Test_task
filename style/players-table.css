@@ -1,0 +1,94 @@
+.players-table{
+	width: 100%;
+    color: #555;
+}
+.players-table tr th, .players-table tr td{
+	text-align: center;
+    padding: 2px 3px;
+    vertical-align: middle;
+}
+.players-table tr th{
+	text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 20px 0;
+}
+.players-table tr input[type='checkbox'] {
+    height: 17px;
+    width: 17px;
+}
+.players-table tr .glyphicon-record {
+    color: rgba(172, 180, 174, 0.57);
+    font-size: 18px;
+}
+.players-table tr .player {
+    color: #3164FB;
+    font-weight: 600;
+}
+.players-table tr:nth-child(odd) .property{
+    background-color: #eee;
+}
+.players-table tr input[type="number"], .players-table tr .position{
+    display: block;
+    border: 1px solid #3164FB;
+    border-radius: 5px;
+    text-align: center;
+    width: 55px;
+    margin: 0 auto;
+    line-height: 200%;
+}
+.players-table tr input[type="number"]:active,
+.players-table tr input[type="number"]:focus{
+	outline: none;
+}
+.players-table tr .position:hover{
+	cursor: default;
+}
+.showMoreBtn, .showMoreBtn:active, .showMoreBtn:visited, .showMoreBtn:focus{
+    margin: 20px 0px;
+    background-color: #D82601;
+    color: white;
+    padding: 10px 20px;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 3px 9px -3px black;
+    -webkit-box-shadow: 0 3px 9px -3px black;
+    box-shadow: 0 3px 9px -3px black;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    color: #fff;
+}
+.showMoreBtn:hover{
+	background-color: #FE3C12;
+	color: #fff;
+}
+.green{
+	background-color: #9ee782;
+}
+.yellow{
+	background-color: #f0f269;
+}
+.orange{
+	background-color: #f7cc66;
+}
+.red{
+	background-color: #f78866;
+}
+
+@media screen and (max-width: 768px){
+	.players-table tbody tr td{
+		font-size: 0.7em;
+	}
+	.players-table{
+		width: 98%;
+	}
+}

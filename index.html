@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" ng-app="teamApp">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>GNS-IT</title>
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style/players-table.css">
+</head>
+<!-- Define controller for app -->
+<body ng-controller="playersListCtrl">
+<div class="container">
+	<div class="row">
+		<!-- Table with players -->
+		<table class="text-center players-table">
+			<!-- Titles for table -->
+			<thead>
+				<tr>
+					<th class="hidden-sm hidden-xs">look</th>
+					<th>target</th>
+					<th>player</th>
+					<th>pos</th>
+					<th class="hidden-sm hidden-xs">tm</th>
+					<th class="hidden-sm hidden-xs">opp</th>
+					<th class="hidden-sm hidden-xs">eff pos</th>
+					<th class="hidden-sm hidden-xs">min</th>
+					<th class="hidden-sm hidden-xs">ur</th>
+					<th class="hidden-sm hidden-xs">rr</th>
+					<th class="hidden-sm hidden-xs">ar</th>
+					<th class="hidden-sm hidden-xs">man ea</th>
+					<th>proj.</th>
+					<th class="hidden-md hidden-sm hidden-xs">dfs site</th>
+					<th>sal</th>
+					<th class="hidden-md hidden-sm hidden-xs">val thr</th>
+					<th class="hidden-md hidden-sm hidden-xs">val</th>
+				</tr>
+			</thead>
+			<!-- Body of tables -->
+			<tbody>
+				<!-- ng-repeat begun -->
+				<tr ng-repeat="player in players | limitTo: playersCount">
+					<td class="hidden-sm hidden-xs"><input type="checkbox" /></td>
+					<td><span class="glyphicon glyphicon-record"></span></td>
+					<td class="player property">{{player.player}}</td>
+					<td class="property">{{player.pos.fantasyaces}}</td>
+					<td class="property hidden-sm hidden-xs">{{player.team}}</td>
+					<td class="property hidden-sm hidden-xs">{{player.opp}}</td>
+					<td class="hidden-sm hidden-xs"><span class="position">{{player.effectivePos.old}}</span></td>
+					<td class="hidden-sm hidden-xs">
+						<input type="number" ng-model="player.projectedStats.minutes.default">
+					</td>
+					<td class="hidden-sm hidden-xs">
+						<input type="number" ng-model="player.projectedStats.usageRate.default">
+					</td>
+					<td class="hidden-sm hidden-xs">
+						<input type="number" ng-model="player.projectedStats.reboundRate.default">
+					</td>
+					<td class="hidden-sm hidden-xs">
+						<input type="number" ng-model="player.projectedStats.assistsRate.default">
+					</td>
+					<td class="hidden-sm hidden-xs">
+						<input type="number" ng-model="player.manualEffAdj.old">
+					</td>
+					<td ng-class="
+					{'red' 	 : player.draftkings.projection.new <= 5,
+					'orange' : player.draftkings.projection.new > 5  && player.draftkings.projection.new <=12,
+					'yellow' : player.draftkings.projection.new > 12 && player.draftkings.projection.new <=21,
+					'green'  : player.draftkings.projection.new > 21}
+					">{{player.draftkings.projection.new}}</td>
+					<td class="property hidden-md hidden-sm hidden-xs">{{player.draftkings.name}}</td>
+					<td class="property">{{player.draftkings.salary}}</td>
+					<td class="property hidden-md hidden-sm hidden-xs">{{player.draftkings.valueThreshold}}</td>
+					<td class="hidden-md hidden-sm hidden-xs" ng-class="
+					{'red' 	 : player.draftkings.value.new <= -21,
+					'orange' : player.draftkings.value.new > -21 && player.draftkings.value.new <= -12,
+					'yellow' : player.draftkings.value.new > -12 && player.draftkings.value.new <= -5,
+					'green'  : player.draftkings.value.new > -5}
+					">{{player.draftkings.value.new}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="text-center">
+			<button class="btn showMoreBtn" ng-click="showMore(50)" ng-show="playersCount <= players.length">Show more</button>
+		</div>
+	</div>
+</div>	
+
+<script src="js/angular.min.js"></script>
+<script src="js/controllers.js"></script>
+</body>
+</html>
