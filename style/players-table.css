@@ -83,7 +83,21 @@
 .red{
 	background-color: #f78866;
 }
-
+.sortable-link:hover{
+    cursor: pointer;
+}
+.filters{
+     margin-top: 25px;
+}
+.filters input[type="number"]{
+    display: inline-block;
+    border: 1px solid #3164FB;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 150px;
+    line-height: 200%;
+    text-align: left;   
+}
 @media screen and (max-width: 768px){
 	.players-table tbody tr td{
 		font-size: 0.7em;

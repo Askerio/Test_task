@@ -12,6 +12,15 @@
 <body ng-controller="playersListCtrl">
 <div class="container">
 	<div class="row">
+		<!-- Filters -->
+		<div class="filters col-xs-6 col-md-6 col-sm-6 col-xs-6">
+			<p>Filter by projection:</p>
+			<input type="number" ng-model="proj">
+		</div>
+		<div class="filters col-xs-6 col-md-6 col-sm-6 col-xs-6 text-right">
+			<p>Filter by salary:</p>
+			<input type="number" ng-model="sal">
+		</div>
 		<!-- Table with players -->
 		<table class="text-center players-table">
 			<!-- Titles for table -->
@@ -29,9 +38,9 @@
 					<th class="hidden-sm hidden-xs">rr</th>
 					<th class="hidden-sm hidden-xs">ar</th>
 					<th class="hidden-sm hidden-xs">man ea</th>
-					<th>proj.</th>
+					<th class="sortable-link" ng-click="order('draftkings.projection.new')">proj.</th>
 					<th class="hidden-md hidden-sm hidden-xs">dfs site</th>
-					<th>sal</th>
+					<th class="sortable-link" ng-click="order('draftkings.salary')">sal</th>
 					<th class="hidden-md hidden-sm hidden-xs">val thr</th>
 					<th class="hidden-md hidden-sm hidden-xs">val</th>
 				</tr>
@@ -39,7 +48,8 @@
 			<!-- Body of tables -->
 			<tbody>
 				<!-- ng-repeat begun -->
-				<tr ng-repeat="player in players | limitTo: playersCount">
+				<tr ng-repeat="
+				player in players | limitTo: playersCount | orderBy: predicate : reverse | filter: proj | filter: sal">
 					<td class="hidden-sm hidden-xs"><input type="checkbox" /></td>
 					<td><span class="glyphicon glyphicon-record"></span></td>
 					<td class="player property">{{player.player}}</td>

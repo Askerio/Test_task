@@ -35,4 +35,12 @@ teamApp.controller('playersListCtrl',['$scope','$http', function($scope, $http) 
 	    //  Calculate proj and round it to 4 symbols after "."
     	player.draftkings.projection.new = Math.round(($scope.minutes * $scope.manEu * ($scope.ur + $scope.rr + $scope.ar) / 3 / $scope.maxR) * 10000) / 10000;
     }
+
+    // Function for orders
+    $scope.reverse = true;
+    $scope.order = function(predicate) {
+        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        $scope.predicate = predicate;
+        $scope.sortable = true;        
+    };
 }]);
