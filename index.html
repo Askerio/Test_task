@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>GNS-IT</title>
+	<title>Test task</title>
 	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="style/players-table.css">
 </head>
@@ -48,26 +48,26 @@
 					<td class="property hidden-sm hidden-xs">{{player.opp}}</td>
 					<td class="hidden-sm hidden-xs"><span class="position">{{player.effectivePos.old}}</span></td>
 					<td class="hidden-sm hidden-xs">
-						<input type="number" ng-model="player.projectedStats.minutes.default">
+						<input type="number" ng-model="player.projectedStats.minutes.default" ng-change="changeInput(player)">
 					</td>
 					<td class="hidden-sm hidden-xs">
-						<input type="number" ng-model="player.projectedStats.usageRate.default">
+						<input type="number" ng-model="player.projectedStats.usageRate.default" ng-change="changeInput(player)">
 					</td>
 					<td class="hidden-sm hidden-xs">
-						<input type="number" ng-model="player.projectedStats.reboundRate.default">
+						<input type="number" ng-model="player.projectedStats.reboundRate.default" ng-change="changeInput(player)">
 					</td>
 					<td class="hidden-sm hidden-xs">
-						<input type="number" ng-model="player.projectedStats.assistsRate.default">
+						<input type="number" ng-model="player.projectedStats.assistsRate.default" ng-change="changeInput(player)">
 					</td>
 					<td class="hidden-sm hidden-xs">
-						<input type="number" ng-model="player.manualEffAdj.old">
+						<input type="number" ng-model="player.manualEffAdj.old" ng-change="changeInput(player)">
 					</td>
 					<td ng-class="
 					{'red' 	 : player.draftkings.projection.new <= 5,
 					'orange' : player.draftkings.projection.new > 5  && player.draftkings.projection.new <=12,
 					'yellow' : player.draftkings.projection.new > 12 && player.draftkings.projection.new <=21,
 					'green'  : player.draftkings.projection.new > 21}
-					">{{player.draftkings.projection.new}}</td>
+					" ng-bind="player.draftkings.projection.new"></td>
 					<td class="property hidden-md hidden-sm hidden-xs">{{player.draftkings.name}}</td>
 					<td class="property">{{player.draftkings.salary}}</td>
 					<td class="property hidden-md hidden-sm hidden-xs">{{player.draftkings.valueThreshold}}</td>
